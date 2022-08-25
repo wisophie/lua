@@ -1,0 +1,71 @@
+local rule = R():text("岔路.*");
+local views = finds(rule);
+for k,view in pairs(views) do
+     print("第"..k.."个控件")
+     print(view.text);     -- 节点的文本 string
+     
+end
+
+
+local rule = R():id("com.tencent.mm:id/auf"):getBrother(-2);
+local rule2 = R():id("com.tencent.mm:id/auf"):getBrother(-3);
+local views = finds(rule);
+local views2 = finds(rule2);
+for k,view in pairs(views) do
+    print("第"..k.."个控件")
+     -- 节点的文本 string
+     if view.text~=nil then
+
+    print(view.text);
+     else
+         for k,view2 in pairs(views2) do
+              if view2.text~=nil then
+                   print(view2.text);
+              end
+              end
+         
+      end 
+    
+end
+
+local rule = R():id("com.tencent.mm:id/auf"):getBrother(-2);
+local rule2 = R():text("今日水印相机"):getBrother(-3);
+local views = finds(rule);
+local views2 = find(rule2);
+for k,view in pairs(views) do
+    print("第"..k.."个控件")
+     -- 节点的文本 string
+     if view.text~=nil then
+
+    print(view.text);
+     elseif views2.text~=nil then
+         print(views2.text);
+        
+         
+      end 
+    
+end
+
+最终版本
+local rule = R():id("com.tencent.mm:id/auf"):getBrother(-2);
+local rule2 = R():text("今日水印相机"):getBrother(-3);
+local views = finds(rule);
+local views2 = finds(rule2);
+for k,view in pairs(views) do
+    print("第"..k.."个控件")
+     -- 节点的文本 string
+     if view.text~=nil then
+
+    print(view.text);
+     else
+          for k,view2 in pairs(views2) do
+              if view2.text~=nil then
+                   print(view2.text);
+              end
+              end
+        
+         
+      end 
+    
+end
+
